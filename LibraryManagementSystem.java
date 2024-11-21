@@ -1,20 +1,19 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// Book class representing the book object
 class Book {
     private String title;
     private String author;
     private boolean isBorrowed;
 
-    // Constructor
+   
     public Book(String title, String author) {
         this.title = title;
         this.author = author;
         this.isBorrowed = false;
     }
 
-    // Getter for title
+   
     public String getTitle() {
         return title;
     }
