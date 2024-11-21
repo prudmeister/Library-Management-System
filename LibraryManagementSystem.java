@@ -45,22 +45,18 @@ class Book {
     }
 }
 
-// Library class to manage the list of books
 class Library {
     private ArrayList<Book> books;
-
-    // Constructor
+    
     public Library() {
         books = new ArrayList<>();
     }
 
-    // Method to add a book to the library
+    
     public void addBook(String title, String author) {
         books.add(new Book(title, author));
         System.out.println("Book '" + title + "' by " + author + " has been added to the library.");
     }
-
-    // Method to display available books in the library
     public void displayBooks() {
         System.out.println("\nAvailable Books in the Library:");
         for (Book book : books) {
@@ -69,8 +65,6 @@ class Library {
             }
         }
     }
-
-    // Method to borrow a book
     public void borrowBook(String title) {
         for (Book book : books) {
             if (book.getTitle().equalsIgnoreCase(title)) {
@@ -85,8 +79,6 @@ class Library {
         }
         System.out.println("The book '" + title + "' does not exist in the library.");
     }
-
-    // Method to return a borrowed book
     public void returnBook(String title) {
         for (Book book : books) {
             if (book.getTitle().equalsIgnoreCase(title)) {
@@ -102,20 +94,14 @@ class Library {
         System.out.println("The book '" + title + "' does not exist in the library.");
     }
 }
-
-// Main class to run the Library Management System
 public class LibraryManagementSystem {
     public static void main(String[] args) {
         Library library = new Library();
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
-
-        // Sample data
         library.addBook("1984", "George Orwell");
         library.addBook("To Kill a Mockingbird", "Harper Lee");
         library.addBook("The Great Gatsby", "F. Scott Fitzgerald");
-
-        // Menu system
         while (running) {
             System.out.println("\nLibrary Management System:");
             System.out.println("1. Display Available Books");
@@ -168,112 +154,3 @@ public class LibraryManagementSystem {
 }
 
 
-
-// import java.util.ArrayList;
-// import java.util.Scanner;
-
-// class Book {
-//     String title;
-//     String author;
-//     String ISBN;
-//     boolean availability;
-
-//     public Book(String title, String author, String ISBN, boolean availability) {
-//         this.title = title;
-//         this.author = author;
-//         this.ISBN = ISBN;
-//         this.availability = availability;
-//     }
-
-//     @Override
-//     public String toString() {
-//         return "Title: " + title + "\nAuthor: " + author + "\nISBN: " + ISBN + "\nAvailability: " + availability + "\n";
-//     }
-// }
-
-// class Library {
-//     ArrayList<Book> books;
-
-//     public Library() {
-//         books = new ArrayList<>();
-//     }
-
-//     public void addBook(Book book) {
-//         books.add(book);
-//     }
-
-//     public void removeBook(String ISBN) {
-//         Book bookToRemove = null;
-//         for (Book book : books) {
-//             if (book.ISBN.equals(ISBN)) {
-//                 bookToRemove = book;
-//                 break;
-//             }
-//         }
-//         if (bookToRemove != null) {
-//             books.remove(bookToRemove);
-//             System.out.println("Book with ISBN " + ISBN + " has been removed.");
-//         } else {
-//             System.out.println("Book with ISBN " + ISBN + " not found.");
-//         }
-//     }
-
-//     public void displayBooks() {
-//         if (books.isEmpty()) {
-//             System.out.println("No books available in the library.");
-//         } else {
-//             for (Book book : books) {
-//                 System.out.println(book);
-//             }
-//         }
-//     }
-// }
-
-// public class LibraryManagementSystem {
-//     public static void main(String[] args) {
-//         Scanner scanner = new Scanner(System.in);
-//         Library library = new Library();
-
-//         while (true) {
-//             System.out.println("\n1. Add Book");
-//             System.out.println("2. Remove Book");
-//             System.out.println("3. Display Books");
-//             System.out.println("4. Exit");
-//             System.out.print("Enter your choice: ");
-            
-//             int choice = scanner.nextInt();
-//             scanner.nextLine(); // To consume the newline character
-
-//             if (choice == 1) {
-//                 System.out.print("Enter title: ");
-//                 String title = scanner.nextLine();
-//                 System.out.print("Enter author: ");
-//                 String author = scanner.nextLine();
-//                 System.out.print("Enter ISBN: ");
-//                 String ISBN = scanner.nextLine();
-//                 System.out.print("Enter availability (true for available, false for unavailable): ");
-//                 boolean availability = scanner.nextBoolean();
-                
-//                 library.addBook(new Book(title, author, ISBN, availability));
-//                 System.out.println("Book added successfully.");
-
-//             } else if (choice == 2) {
-//                 System.out.print("Enter ISBN of the book to remove: ");
-//                 String ISBN = scanner.nextLine();
-//                 library.removeBook(ISBN);
-
-//             } else if (choice == 3) {
-//                 library.displayBooks();
-
-//             } else if (choice == 4) {
-//                 System.out.println("Exiting the system.");
-//                 break;
-
-//             } else {
-//                 System.out.println("Invalid choice. Please try again.");
-//             }
-//         }
-
-//         scanner.close();
-//     }
-// }
