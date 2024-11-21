@@ -6,34 +6,24 @@ class Book {
     private String author;
     private boolean isBorrowed;
 
-   
     public Book(String title, String author) {
         this.title = title;
         this.author = author;
         this.isBorrowed = false;
     }
 
-   
     public String getTitle() {
         return title;
     }
-
-    // Getter for author
     public String getAuthor() {
         return author;
     }
-
-    // Method to check if the book is borrowed
     public boolean isBorrowed() {
         return isBorrowed;
     }
-
-    // Method to set the book as borrowed
     public void borrowBook() {
         isBorrowed = true;
     }
-
-    // Method to set the book as returned
     public void returnBook() {
         isBorrowed = false;
     }
@@ -49,9 +39,7 @@ class Library {
     
     public Library() {
         books = new ArrayList<>();
-    }
-
-    
+    }    
     public void addBook(String title, String author) {
         books.add(new Book(title, author));
         System.out.println("Book '" + title + "' by " + author + " has been added to the library.");
